@@ -1,4 +1,4 @@
-function addUIItem(txt) { //funktio add ul item
+function addUI(txt) { //funktio add ul item
     let li = document.createElement("li"); //luodaan uusi li (elementti)
     li.innerHTML = txt; //teksti
     list.insertBefore(li, list.childNodes[0]); //siirretään nykyisestä sijainnista uuteen paikkaan
@@ -17,7 +17,7 @@ function addUIItem(txt) { //funktio add ul item
   // lataa tallennetut
   let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
   // lisää UI elementtit tallennettuihin taskeihin
-  savedTasks.forEach(addUIItem); //luodaan forEach-silmukan jokaiselle objektitaulukon objektinkohdalle
+  savedTasks.forEach(addUI); //luodaan forEach-silmukan jokaiselle objektitaulukon objektinkohdalle
   
   btn.addEventListener("click", () => {
     let txt = input.value;
@@ -27,7 +27,7 @@ function addUIItem(txt) { //funktio add ul item
       savedTasks.push(txt); //tallennetut tehtävät
       localStorage.setItem("tasks", JSON.stringify(savedTasks)); //tallennus localStorageen
       input.value = ""; //syötetty teksti
-      addUIItem(txt); // lisää ul itemi
+      addUI(txt); // lisää ul itemi
     }
   });
   
